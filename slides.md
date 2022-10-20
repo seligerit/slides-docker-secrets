@@ -158,3 +158,9 @@ DOCKER_BUILDKIT=1 docker build -t hello:latest \
   --progress=plain --secret id=geheim,src=geheim.txt \
   -f Dockerfile-buildkit .
 </code></pre>
+
+---
+
+Beispiele: https://github.com/seligerit/slides-docker-secrets/tree/main/docker-examples
+
+Slides: https://seligerit.github.io/slides-docker-secrets/
