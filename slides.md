@@ -40,6 +40,13 @@ USER node
 CMD /sbin/tini -- node hello_world.js
 </code></pre>
 
+<pre><code data-trim data-noescape class="shell">
+docker run -ti --rm -p8080:8080 --name hello hello
+
+docker exec -ti hello /bin/sh
+</code></pre>
+
+
 ---
 
 #### Image/container layered file system
@@ -49,7 +56,7 @@ CMD /sbin/tini -- node hello_world.js
 ---
 
 #### Image Layer inspizieren
-<pre><code data-trim data-noescape class="bash">
+<pre><code data-trim data-noescape class="shell">
 docker inspect hello:latest
 
 docker save hello:latest -o layers.tar
@@ -96,7 +103,7 @@ CMD /sbin/tini -- node hello_world.js
 
 #### Image inspizieren
 
-<pre><code data-trim data-noescape class="bash">
+<pre><code data-trim data-noescape class="shell">
 docker inspect hello:latest
 
 docker history hello:latest
@@ -153,7 +160,7 @@ USER node
 CMD /sbin/tini -- node hello_world.js
 </code></pre>
 
-<pre><code data-trim data-noescape class="bash">
+<pre><code data-trim data-noescape class="shell">
 DOCKER_BUILDKIT=1 docker build -t hello:latest \
   --progress=plain --secret id=geheim,src=geheim.txt \
   -f Dockerfile-buildkit .
