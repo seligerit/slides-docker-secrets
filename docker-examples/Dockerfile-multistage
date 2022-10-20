@@ -1,0 +1,18 @@
+FROM node:18-alpine AS hellobuild
+WORKDIR /app
+ENV NODE_ENV=production
+ARG NPM_TOKEN
+COPY package*.json ./
+COPY geheim.txt .
+RUN npm ci --omit=dev
+RUN rm geheim.txt
+
+FROM node:18-alpine
+RUN apk add --no-cache tini
+WORKDIR /app
+ENV NODE_ENV=production
+EXPOSE 8080
+COPY --from=hellobuild /app/node_modules ./node_modules
+COPY hello_world.js .
+USER node
+CMD /sbin/tini -- node hello_world.js
