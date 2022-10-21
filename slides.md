@@ -61,6 +61,8 @@ docker inspect hello:latest
 
 docker save hello:latest -o layers.tar
 
+tar xvf layers.tar
+
 for layer in */layer.tar; do \
   tar -tf $layer | grep geheim.txt && echo $layer; \
 done
