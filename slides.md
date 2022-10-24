@@ -101,6 +101,12 @@ USER node
 CMD /sbin/tini -- node hello_world.js
 </code></pre>
 
+<pre><code data-trim data-noescape class="shell">
+docker build -t hello:latest \
+  --build-arg NPM_TOKEN=supageheim \
+  -f Dockerfile-arg .
+</code></pre>
+
 ---
 
 #### Image inspizieren
@@ -140,6 +146,12 @@ USER node
 CMD /sbin/tini -- node hello_world.js
 </code></pre>
 
+
+<pre><code data-trim data-noescape class="shell">
+docker build -t hello:latest \
+  --build-arg NPM_TOKEN=supageheim \
+  -f Dockerfile-arg .
+</code></pre>
 ---
 #### Docker Buildkit (Docker >= 18.09)
 
@@ -167,6 +179,13 @@ DOCKER_BUILDKIT=1 docker build -t hello:latest \
   --progress=plain --secret id=geheim,src=geheim.txt \
   -f Dockerfile-buildkit .
 </code></pre>
+
+---
+
+#### Lösungsmöglichkeiten:
+
+- [Docker Multi Stage Builds](https://docs.docker.com/build/building/multi-stage/)
+- [Docker Buildkit](https://docs.docker.com/develop/develop-images/build_enhancements/)
 
 ---
 
