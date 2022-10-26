@@ -152,7 +152,7 @@ CMD /sbin/tini -- node hello_world.js
 <pre><code data-trim data-noescape class="shell">
 docker build -t hello:latest \
   --build-arg NPM_TOKEN=supageheim \
-  -f Dockerfile-arg .
+  -f Dockerfile-multi .
 </code></pre>
 ---
 #### Docker Buildkit (Docker >= 18.09)
