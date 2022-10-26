@@ -165,8 +165,6 @@ RUN apk add --no-cache tini
 WORKDIR /app
 ENV NODE_ENV=production
 
-ARG NPM_TOKEN
-
 COPY package*.json ./
 RUN --mount=type=secret,id=geheim,dst=geheim.txt ls -al && npm ci --omit=dev
 EXPOSE 8080
