@@ -92,7 +92,6 @@ ENV NODE_ENV=production
 ARG NPM_TOKEN
 
 COPY package*.json ./
-COPY geheim.txt .
 RUN npm ci --omit=dev
 RUN rm geheim.txt
 
