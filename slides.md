@@ -41,6 +41,8 @@ CMD /sbin/tini -- node hello_world.js
 </code></pre>
 
 <pre><code data-trim data-noescape class="shell">
+docker build -t hello:latest -f Dockerfile-copy .
+
 docker run -ti --rm -p8080:8080 --name hello hello:latest
 
 docker exec -ti hello /bin/sh
